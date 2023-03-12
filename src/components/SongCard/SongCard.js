@@ -5,7 +5,7 @@ import styles from './SongCard.styles'
 const SongCard = (props) => {
     return(
 <View style = {styles. container}>
-    <Image style ={styles.image} source ={{uri : props.son.imageUrl}}/>
+    <Image style ={styles.image} source ={{uri : props.song.imageUrl}}/>
     <View style ={styles.inner_container} >
         <Text style ={styles.title}>{props.song.title}</Text>
         <View style ={styles. info_container}>
