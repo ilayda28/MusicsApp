@@ -9,7 +9,6 @@ export default StyleSheet. create ({
         width: 100,
         height: 100,
         borderRadius:50,
-
     },    
     inner_container : {
         flex :1,
@@ -22,11 +21,26 @@ export default StyleSheet. create ({
     },
     info_container : {
         flexDirection :'row',
+        flex :1,
+        alignItems :'center',
     },
     year: {
         marginLeft: 10,
         color :'gray',
         fontWeight :'bold',
         fontSize : 12,
-    }
+    },
+    soldout_container: {
+        borderWidth :1,
+        borderColor :'red',
+        padding : 5,
+        borderRadius : 5,
+    },
+    content_container : {
+        flexDirection:'row',
+    },
+    soldout_title: {
+        color : 'red',
+        fontSize : 12,
+    },
 })

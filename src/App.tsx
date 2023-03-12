@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native';
 import music_data from './music-data.json';
 import SongCard from "./components/SongCard";
+import SearchBar from './components/SongCard/SearchBar';
 
 function App () {
   const renderSong = ({item}) => <SongCard song = {item}/>;
@@ -10,14 +11,14 @@ function App () {
 
   return (
     <SafeAreaView style = {styles.container}>
-      <View style = {styles.container}>
+      <SearchBar/>
        <FlatList
        keyExtractor = {item => item.id}
        data = {music_data }
        renderItem = {renderSong}
        ItemSeparatorComponent={renderSeperator}
        />
-      </View>
+      
     </SafeAreaView>
   );
 
