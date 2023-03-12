@@ -1,20 +1,33 @@
-import React from 'react';
-import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet } from 'react-native';
 import music_data from './music-data.json';
 import SongCard from "./components/SongCard";
 import SearchBar from './components/SongCard/SearchBar';
 
 function App () {
+  const [list, setlist] =useState(music_data);
+
   const renderSong = ({item}) => <SongCard song = {item}/>;
 
   const renderSeperator =() => <View style ={styles.seperator}/>
 
+  const handleSearch = text =>{
+    const filteredList= music_data.filter(song => {
+      const searchedText = text.toLowerCase();
+      const currentTitle =song.title.toLowerCase();
+
+      return currentTitle.indexOf (searchedText) > -1;
+    });
+  setlist (filteredList);
+
+  };
+
   return (
     <SafeAreaView style = {styles.container}>
-      <SearchBar/>
+      <SearchBar onSearch = {handleSearch}/>
        <FlatList
        keyExtractor = {item => item.id}
-       data = {music_data }
+       data = {list}
        renderItem = {renderSong}
        ItemSeparatorComponent={renderSeperator}
        />
